@@ -64,7 +64,7 @@ short readDataFromSensor(short address)
 void setup(void) 
 {
   Wire.begin();
-  Serial.begin(57600);
+  Serial.begin(115200);
   Serial.flush();
 
    while (!Serial)
@@ -78,7 +78,7 @@ void setup(void)
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
     while(1);
   }
-  delay(1000);
+  delayMicroseconds(10);
 
   bno.setExtCrystalUse(true);
 
@@ -87,7 +87,7 @@ void setup(void)
     while (readDataFromSensor(IC_address_list[i]) <= 0){
       Serial.print("Ooops, no SingleTact detected ... Check your wiring! Check sensor: ");
       Serial.println(IC_address_list[i]);
-      delay(10000);
+      delayMicroseconds(10000);
     }
   }
 }
@@ -159,6 +159,5 @@ void loop(void)
   Serial.print(accl.z(), 4);
   Serial.println("");
 
-  delay(100);
-  
+  delayMicroseconds(5);
 }
