@@ -1,4 +1,3 @@
-/* Set Serial to 57600 */
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
