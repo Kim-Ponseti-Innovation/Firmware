@@ -80,15 +80,6 @@ void setup(void)
   delayMicroseconds(10);
 
   bno.setExtCrystalUse(true);
-
-  /* Checks to see if Singletact Sensors are working */
-  for (int i = 0; i <= 7; i++) {
-    while (readDataFromSensor(IC_address_list[i]) <= 0){
-      Serial.print("Ooops, no SingleTact detected ... Check your wiring! Check sensor: ");
-      Serial.println(IC_address_list[i]);
-      delayMicroseconds(10000);
-    }
-  }
 }
 
 void loop(void) 
