@@ -13,7 +13,7 @@ Adafruit_BNO055 bno = Adafruit_BNO055(BNO055_ADDRESS);
 void setup() 
 {
   Wire.begin();
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.flush();
 
   /* Checks if BNO055 Sensor is detected */
@@ -22,7 +22,7 @@ void setup()
     Serial.print("0");
     while(1);
   }
-  delayMicroseconds(10);
+  delayMicroseconds(5);
 
   bno.setExtCrystalUse(true);
 }
@@ -37,9 +37,9 @@ void loop()
   bno.getEvent(&event);
 
   Serial.print(event.orientation.x, 4);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print(event.orientation.y, 4);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print(event.orientation.z, 4);
   Serial.print(", ");
 
@@ -47,9 +47,9 @@ void loop()
   imu::Vector<3> accl = bno.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
 
   Serial.print(accl.x(), 4);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print(accl.y(), 4);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print(accl.z(), 4);
   Serial.println("");
 
